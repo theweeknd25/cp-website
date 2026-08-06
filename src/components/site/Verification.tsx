@@ -1,0 +1,9 @@
+import { ArrowUpRight, BadgeCheck, ShieldCheck } from "lucide-react";
+import { company } from "@/config/company";
+import { siteContent } from "@/config/content";
+import { Button } from "@/components/common/Button";
+
+export function Verification() {
+  const content = siteContent.verification;
+  return <section id="verification" className="bg-white py-16 sm:py-24"><div className="mx-auto max-w-5xl px-5 sm:px-6"><div className="grid overflow-hidden rounded-[1.75rem] border border-slate-200 bg-slate-50 lg:grid-cols-[1.25fr_.75fr]"><div className="p-7 sm:p-10"><p className="text-xs font-semibold uppercase tracking-[.22em] text-[#b58f1d]">{content.eyebrow}</p><h2 className="mt-3 text-3xl font-semibold tracking-[-.03em] text-[#0F172A] sm:text-4xl">{content.title}</h2><p className="mt-5 max-w-xl leading-7 text-slate-600">{content.description}</p><div className="mt-8 flex items-center gap-3 rounded-xl border border-slate-200 bg-white p-4"><BadgeCheck className="shrink-0 text-[#a88116]" size={26} /><div><p className="text-xs font-semibold uppercase tracking-[.14em] text-slate-500">{content.certificateLabel}</p><p className="mt-1 font-semibold text-[#0F172A]">{company.mahaReraNumber}</p></div></div><Button href={company.certificate} variant="outline" className="mt-6">{content.cta}<ArrowUpRight size={17} className="ml-2" /></Button></div><div className="flex flex-col items-center justify-center bg-[#0F172A] p-8 text-center text-white"><div className="rounded-2xl bg-white p-3"><img src={company.verificationQR} alt="QR code for MahaRERA verification" className="h-32 w-32 object-contain" /></div><p className="mt-6 text-sm font-semibold">Independent verification</p><p className="mt-2 max-w-48 text-xs leading-5 text-slate-300">Scan or use the registration number to verify the channel partner details.</p><ShieldCheck className="mt-6 text-[#D4AF37]" size={24} /></div></div></div></section>;
+}
