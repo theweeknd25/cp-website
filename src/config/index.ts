@@ -8,3 +8,4 @@ export { projects } from "./projects";
 export { searchConfig } from "./search";
 export { stats } from "./stats";
 export { theme } from "./theme";
+export { analytics } from "./analytics";
