@@ -19,11 +19,14 @@ export function DeveloperMarquee() {
               className="flex h-28 w-56 items-center justify-center"
             >
               <img
-                src={developer.logo}
-                alt={developer.name}
-                loading="lazy"
-                className="max-h-20 max-w-full object-contain opacity-90 transition-all duration-500 hover:scale-110"
-              />
+                  src={developer.logo}
+                  alt={developer.name}
+                  loading="lazy"
+                  decoding="async"
+                  width={160}
+                  height={80}
+                  className="max-h-20 max-w-full object-contain opacity-90 transition-all duration-500 hover:scale-110"
+                />
             </div>
 
           ))}

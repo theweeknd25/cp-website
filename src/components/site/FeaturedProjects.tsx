@@ -38,8 +38,13 @@ export function FeaturedProjects() {
                 <img
                   src={project.image}
                   alt={project.name}
+                  loading="lazy"
+                  decoding="async"
+                  width={600}
+                  height={450}
                   className="h-72 w-full object-cover transition duration-700 group-hover:scale-110"
-                />
+
+                  />
 
                 <span className="absolute left-5 top-5 rounded-full bg-[#D4AF37] px-4 py-2 text-sm font-semibold text-[#0F172A]">
 
@@ -80,13 +85,12 @@ export function FeaturedProjects() {
                   </div>
 
                   <a
-                    href="#contact"
-                    className="rounded-xl bg-[#D4AF37] px-5 py-3 font-semibold text-[#0F172A] transition hover:bg-[#e6bf4d]"
-                  >
-
-                    Book Visit
-
-                  </a>
+                      href="#contact"
+                      aria-label={`Book a site visit for ${project.name}`}
+                      className="rounded-xl bg-[#D4AF37] px-5 py-3 font-semibold text-[#0F172A] transition hover:bg-[#e6bf4d]"
+                    >
+                      Book Visit
+                    </a>
 
                 </div>
 

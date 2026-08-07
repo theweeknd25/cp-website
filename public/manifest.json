@@ -1,0 +1,17 @@
+{
+  "name": "Agastya Elite Estate",
+  "short_name": "Agastya",
+  "description": "Premium Real Estate Consultant in Pune",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0F172A",
+  "theme_color": "#0F172A",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

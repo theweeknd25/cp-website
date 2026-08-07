@@ -41,6 +41,8 @@ export function Navbar() {
           <img
             src={company.logo}
             alt={company.name}
+            width={48}
+            height={48}
             className="h-11 w-11 shrink-0 object-contain lg:h-12 lg:w-12"
           />
 
@@ -88,22 +90,27 @@ export function Navbar() {
         </a>
 
         <button
-          type="button"
-          onClick={() => setMobileOpen((open) => !open)}
-          className={`grid h-11 w-11 place-items-center rounded-xl transition lg:hidden ${
-            light
-              ? "text-[#0F172A] hover:bg-slate-100"
-              : "text-white hover:bg-white/10"
-          }`}
-        >
-          {mobileOpen ? <X size={21} /> : <Menu size={22} />}
-        </button>
+                type="button"
+                onClick={() => setMobileOpen((open) => !open)}
+                aria-label={mobileOpen ? "Close navigation menu" : "Open navigation menu"}
+                aria-expanded={mobileOpen}
+                aria-controls="mobile-navigation"
+                className={`grid h-11 w-11 place-items-center rounded-xl transition lg:hidden ${
+                  light
+                    ? "text-[#0F172A] hover:bg-slate-100"
+                    : "text-white hover:bg-white/10"
+                }`}
+              >
+                {mobileOpen ? <X size={21} /> : <Menu size={22} />}
+              </button>
       </div>
 
-      {mobileOpen && (
-        <div className="border-t border-slate-200 bg-white px-5 pb-5 lg:hidden">
-          <nav className="mx-auto flex max-w-7xl flex-col">
-
+                {mobileOpen && (
+            <div
+              id="mobile-navigation"
+              className="border-t border-slate-200 bg-white px-5 pb-5 lg:hidden"
+            >
+              <nav className="mx-auto flex max-w-7xl flex-col">
             {navigation.map((link) => (
               <a
                 key={link.label}

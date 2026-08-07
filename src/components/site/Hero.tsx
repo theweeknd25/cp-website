@@ -69,9 +69,9 @@ export function Hero() {
                   className="pl-3 first:pl-0"
                 >
 
-                  <h3 className="text-xl font-semibold text-[#D4AF37] sm:text-2xl">
+                  <p className="text-xl font-semibold text-[#D4AF37] sm:text-2xl">
                     {item.number}
-                  </h3>
+                  </p>
 
                   <p className="mt-1 pr-2 text-xs leading-5 text-slate-300 sm:text-sm">
                     {item.label}
@@ -94,10 +94,15 @@ export function Hero() {
             <div className="relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-slate-800/40 p-2 shadow-2xl shadow-black/30">
 
               <img
-                src={hero.image}
-                alt="Premium residential tower"
-                className="aspect-[4/3] w-full rounded-[1.25rem] object-cover object-center"
-              />
+                  src={hero.image}
+                  alt="Premium residential tower in Pune"
+                  loading="eager"
+                  fetchPriority="high"
+                  decoding="async"
+                  width={800}
+                  height={600}
+                  className="aspect-[4/3] w-full rounded-[1.25rem] object-cover object-center"
+/>
 
             </div>
 

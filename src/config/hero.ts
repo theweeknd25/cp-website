@@ -25,5 +25,5 @@ secondaryButton: {
   href: "#projects",
 },
 
-  image: "images/hero.jpg",
+  image: "images/hero.webp",
 };
