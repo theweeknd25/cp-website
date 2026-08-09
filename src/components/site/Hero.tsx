@@ -1,5 +1,5 @@
 import { ArrowRight } from "lucide-react";
-
+import { trackEvent } from "@/lib/track";
 import { hero } from "@/config/hero";
 import { stats } from "@/config/stats";
 
@@ -43,7 +43,15 @@ export function Hero() {
 
             <div className="mt-8 flex flex-wrap gap-3 sm:mt-10 sm:gap-4">
 
-              <Button href={hero.primaryButton.href}>
+              <Button
+                href={hero.primaryButton.href}
+                onClick={() =>
+                  trackEvent("hero_primary_cta", {
+                    button: hero.primaryButton.text,
+                    location: "Hero",
+                  })
+                }
+              >
                 {hero.primaryButton.text}
                 <ArrowRight size={18} className="ml-2" />
               </Button>
@@ -51,6 +59,12 @@ export function Hero() {
               <Button
                 href={hero.secondaryButton.href}
                 variant="secondary"
+                onClick={() =>
+                  trackEvent("hero_secondary_cta", {
+                    button: hero.secondaryButton.text,
+                    location: "Hero",
+                  })
+                }
               >
                 {hero.secondaryButton.text}
                 <ArrowRight size={18} className="ml-2" />
