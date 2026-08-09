@@ -1,4 +1,5 @@
 import { company } from "@/config/company";
+import { trackEvent } from "@/lib/track";
 
 export type LeadPayload = {
   name: string;
@@ -17,17 +18,29 @@ export async function submitLead(lead: LeadPayload) {
   }
 
   const payload = new URLSearchParams({
-    ...Object.fromEntries(Object.entries(lead).filter(([, value]) => value)),
+    ...Object.fromEntries(
+      Object.entries(lead).filter(([, value]) => value),
+    ),
     submittedAt: new Date().toISOString(),
     company: company.name,
   });
 
-  // Apps Script web apps commonly redirect and do not return CORS headers. no-cors
-  // sends reliably; the UI reports a successful dispatch once the browser accepts it.
   await fetch(company.googleAppsScriptUrl, {
     method: "POST",
     mode: "no-cors",
-    headers: { "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8" },
+    headers: {
+      "Content-Type":
+        "application/x-www-form-urlencoded;charset=UTF-8",
+    },
     body: payload.toString(),
+  });
+
+  // Google Analytics Event
+  trackEvent("generate_lead", {
+    form_name: "Contact Form",
+    source: lead.source,
+    property_type: lead.propertyType,
+    budget: lead.budget,
+    location: lead.location,
   });
 }
