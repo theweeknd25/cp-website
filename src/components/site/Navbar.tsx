@@ -35,28 +35,28 @@ export function Navbar() {
 
         <a
           href="#home"
-          className="flex min-w-0 items-center gap-3"
+          className="flex min-w-0 items-center gap-4"
           aria-label={`${company.name} home`}
         >
-          <img
-            src={company.logo}
-            alt={company.name}
-            width={48}
-            height={48}
-            className="h-11 w-11 shrink-0 object-contain lg:h-12 lg:w-12"
-          />
+                  <img
+          src={company.logo}
+          alt={company.name}
+          width={64}
+          height={64}
+          className="h-14 w-14 shrink-0 object-contain lg:h-16 lg:w-16"
+        />
 
           <div
             className={`min-w-0 transition-colors ${
               light ? "text-[#0F172A]" : "text-white"
             }`}
           >
-            <p className="truncate text-base font-semibold tracking-[-.02em] lg:text-lg">
+            <p className="truncate text-lg font-semibold tracking-[-.02em] lg:text-xl">
               {company.name}
             </p>
 
             <p
-              className={`text-[10px] font-medium uppercase tracking-[.16em] ${
+              className={`text-xs font-medium uppercase tracking-[.18em] ${
                 light ? "text-slate-500" : "text-slate-300"
               }`}
             >

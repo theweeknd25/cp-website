@@ -9,13 +9,13 @@ export const company = {
   name: "Agastya Elite Estate",
   tagline: "Verified Properties. Trusted Guidance.",
 
-  // Registration
+  // Registration 
   mahaReraNumber: "A031262501593",
 
-  // Contact
-  phone: "+919322615252",
-  whatsapp: "919322615252",
-  email: "info@agastyaeliteestate.in",
+  // Contact 
+  phone: "+917249563181",
+  whatsapp: "917249563181",
+  email: "agastyaeliteestate@gmail.com",
 
   // Address
   city: "Pune",
