@@ -15,7 +15,7 @@ type LeadFormProps = {
 };
 
 const controlClass =
-  "mt-2 h-12 w-full rounded-xl border border-slate-200 bg-white px-3 text-sm text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-[#D4AF37] focus:ring-2 focus:ring-[#D4AF37]/20";
+  "mt-1.5 h-11 w-full rounded-xl border border-slate-200 bg-white px-3 text-sm text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-[#D4AF37] focus:ring-2 focus:ring-[#D4AF37]/20 sm:mt-2 sm:h-12";
 
 export function LeadForm({
   className = "",
@@ -90,10 +90,10 @@ export function LeadForm({
 
   return (
     <form
-      className={`grid gap-4 sm:grid-cols-2 ${className}`}
+  className={`grid gap-3 sm:gap-4 sm:grid-cols-2 ${className}`}
       onSubmit={handleSubmit}
     >
-      <label className="text-sm font-medium text-slate-700">
+      <label className="text-[13px] font-medium text-slate-700 sm:text-sm">
         {fields.name.label}
         <input
           required
@@ -104,7 +104,7 @@ export function LeadForm({
         />
       </label>
 
-      <label className="text-sm font-medium text-slate-700">
+      <label className="text-[13px] font-medium text-slate-700 sm:text-sm">
         {fields.phone.label}
         <input
           required
@@ -119,7 +119,7 @@ export function LeadForm({
         />
       </label>
 
-      <label className="text-sm font-medium text-slate-700">
+      <label className="text-[13px] font-medium text-slate-700 sm:text-sm">
         {fields.email.label}
         <input
           name="email"
@@ -130,7 +130,7 @@ export function LeadForm({
         />
       </label>
 
-      <label className="text-sm font-medium text-slate-700">
+      <label className="text-[13px] font-medium text-slate-700 sm:text-sm">
         {fields.budget.label}
         <select
           name="budget"
@@ -145,7 +145,7 @@ export function LeadForm({
         </select>
       </label>
 
-      <label className="text-sm font-medium text-slate-700">
+      <label className="text-[13px] font-medium text-slate-700 sm:text-sm">
         {fields.propertyType.label}
         <select
           name="propertyType"
@@ -160,7 +160,7 @@ export function LeadForm({
         </select>
       </label>
 
-      <label className="text-sm font-medium text-slate-700">
+      <label className="text-[13px] font-medium text-slate-700 sm:text-sm">
         {fields.location.label}
         <select
           name="location"
@@ -175,15 +175,16 @@ export function LeadForm({
         </select>
       </label>
 
-      <label className="text-sm font-medium text-slate-700 sm:col-span-2">
-        {fields.message.label}
-        <textarea
-          name="message"
-          rows={3}
-          placeholder={fields.message.placeholder}
-          className={`${controlClass} h-auto py-3`}
-        />
-      </label>
+                      <label className="text-[13px] font-medium text-slate-700 sm:col-span-2 sm:text-sm">
+          {fields.message.label}
+
+          <textarea
+            name="message"
+            rows={3}
+            placeholder={fields.message.placeholder}
+            className={`${controlClass} h-20 py-2.5 sm:h-auto sm:py-3`}
+          />
+        </label>
 
       {status === "error" && (
         <div className="rounded-xl border border-red-200 bg-red-50 p-4 text-sm text-red-700 sm:col-span-2">

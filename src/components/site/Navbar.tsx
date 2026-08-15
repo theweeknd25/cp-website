@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { ArrowRight, Menu, X } from "lucide-react";
 
 import { company } from "@/config/company";
@@ -6,70 +6,35 @@ import { navigation } from "@/config/navigation";
 
 export function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 24);
-
-    handleScroll();
-
-    window.addEventListener("scroll", handleScroll, {
-      passive: true,
-    });
-
-    return () =>
-      window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  const light = scrolled || mobileOpen;
 
   return (
-    <header
-      className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
-        light
-          ? "border-b border-slate-200 bg-white/95 shadow-sm backdrop-blur-xl"
-          : "bg-transparent backdrop-blur-sm"
-      }`}
-    >
-      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-5 sm:px-6">
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-slate-200 bg-white shadow-[0_2px_20px_rgba(15,23,42,0.06)] backdrop-blur-xl">
+      <div className="mx-auto flex h-[76px] max-w-7xl items-center justify-between px-5 sm:px-6">
 
         <a
           href="#home"
-          className="flex min-w-0 items-center gap-4"
+          className="flex min-w-0 items-center gap-3"
           aria-label={`${company.name} home`}
         >
-                  <img
-          src={company.logo}
-          alt={company.name}
-          width={64}
-          height={64}
-          className="h-14 w-14 shrink-0 object-contain lg:h-16 lg:w-16"
-        />
+          <img
+              src={company.logo}
+              alt={company.name}
+              width={56}
+              height={56}
+              className="h-12 w-12 shrink-0 object-contain lg:h-14 lg:w-14"
+            />
+                  <div className="min-w-0 text-[#0F172A]">
+                    <p className="truncate text-lg font-semibold tracking-[-0.015em] lg:text-xl">
+                      {company.name}
+                    </p>
 
-          <div
-            className={`min-w-0 transition-colors ${
-              light ? "text-[#0F172A]" : "text-white"
-            }`}
-          >
-            <p className="truncate text-lg font-semibold tracking-[-.02em] lg:text-xl">
-              {company.name}
-            </p>
-
-            <p
-              className={`text-xs font-medium uppercase tracking-[.18em] ${
-                light ? "text-slate-500" : "text-slate-300"
-              }`}
-            >
-              MahaRERA Registered
-            </p>
-          </div>
+                    <p className="text-[11px] font-medium uppercase tracking-[0.22em] text-slate-500">
+                      MahaRERA Registered
+                    </p>
+                  </div>
         </a>
 
-        <nav
-          className={`hidden items-center gap-7 lg:flex ${
-            light ? "text-slate-700" : "text-slate-200"
-          }`}
-        >
+        <nav className="hidden items-center gap-7 text-slate-700 lg:flex">
           {navigation.map((link) => (
             <a
               key={link.label}
@@ -90,27 +55,23 @@ export function Navbar() {
         </a>
 
         <button
-                type="button"
-                onClick={() => setMobileOpen((open) => !open)}
-                aria-label={mobileOpen ? "Close navigation menu" : "Open navigation menu"}
-                aria-expanded={mobileOpen}
-                aria-controls="mobile-navigation"
-                className={`grid h-11 w-11 place-items-center rounded-xl transition lg:hidden ${
-                  light
-                    ? "text-[#0F172A] hover:bg-slate-100"
-                    : "text-white hover:bg-white/10"
-                }`}
-              >
-                {mobileOpen ? <X size={21} /> : <Menu size={22} />}
-              </button>
+          type="button"
+          onClick={() => setMobileOpen((open) => !open)}
+          aria-label={mobileOpen ? "Close navigation menu" : "Open navigation menu"}
+          aria-expanded={mobileOpen}
+          aria-controls="mobile-navigation"
+          className="grid h-11 w-11 place-items-center rounded-xl text-[#0F172A] transition hover:bg-slate-100 lg:hidden"
+        >
+          {mobileOpen ? <X size={21} /> : <Menu size={22} />}
+        </button>
       </div>
 
-                {mobileOpen && (
-            <div
-              id="mobile-navigation"
-              className="border-t border-slate-200 bg-white px-5 pb-5 lg:hidden"
-            >
-              <nav className="mx-auto flex max-w-7xl flex-col">
+      {mobileOpen && (
+        <div
+          id="mobile-navigation"
+          className="border-t border-slate-200 bg-white px-5 pb-5 lg:hidden"
+        >
+          <nav className="mx-auto flex max-w-7xl flex-col">
             {navigation.map((link) => (
               <a
                 key={link.label}
@@ -130,7 +91,6 @@ export function Navbar() {
               Book a Site Visit
               <ArrowRight size={16} />
             </a>
-
           </nav>
         </div>
       )}

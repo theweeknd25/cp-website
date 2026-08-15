@@ -34,8 +34,8 @@ export const company = {
     "https://script.google.com/macros/s/AKfycbziW7rQza05q82q_bXT_B0sL_SPR7ySpRi3JBEZgZBoIJ1Nrso-brlWrWnnMi1drbw/exec",
 
   // Social
-  instagram: "",
-  facebook: "",
+  instagram: "https://www.instagram.com/agastya.elite.estate/",
+  facebook: "https://www.facebook.com/profile.php?id=61578339357116",
   linkedin: "",
   youtube: "",
 

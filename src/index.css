@@ -1,1 +1,26 @@
 @import "tailwindcss";
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  width: 100%;
+  overflow-x: clip;
+  scroll-behavior: smooth;
+  scroll-padding-top: 76px;
+  overscroll-behavior-x: none;
+}
+
+body,
+#root {
+  width: 100%;
+  min-width: 0;
+  overflow-x: clip;
+}
+
+section[id] {
+  scroll-margin-top: 76px;
+}
